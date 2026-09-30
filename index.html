@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Knife Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #111;
+            color: #f2f2f2;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+
+        .line {
+            width: 80px;
+            height: 1px;
+            background: #777;
+            margin-top: 35px;
+        }
+
+        .portfolio {
+            padding: 100px 7%;
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 70px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .knife {
+            background: #181818;
+            overflow: hidden;
+        }
+
+        .knife img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .knife-info {
+            padding: 25px;
+        }
+
+        .knife-info h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .knife-info p {
+            color: #999;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            color: #666;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <h1>Knife Portfolio</h1>
+        <p>Handcrafted • Designed • Made by Hand</p>
+        <div class="line"></div>
+    </section>
+
+    <section class="portfolio">
+        <h2>Selected Works</h2>
+
+        <div class="gallery">
+
+            <div class="knife">
+                <img src="images/knife1.jpg" alt="Knife 01">
+
+                <div class="knife-info">
+                    <h3>Knife No. 01</h3>
+                    <p>Handcrafted knife</p>
+                </div>
+            </div>
+
+            <div class="knife">
+                <img src="images/knife2.jpg" alt="Knife 02">
+
+                <div class="knife-info">
+                    <h3>Knife No. 02</h3>
+                    <p>Handcrafted knife</p>
+                </div>
+            </div>
+
+            <div class="knife">
+                <img src="images/knife3.jpg" alt="Knife 03">
+
+                <div class="knife-info">
+                    <h3>Knife No. 03</h3>
+                    <p>Handcrafted knife</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Knife Portfolio
+    </footer>
+
+</body>
+</html>
