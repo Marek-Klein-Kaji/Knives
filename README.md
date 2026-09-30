@@ -1,2 +1,1121 @@
-# Knives
-My Knife Portfolio
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>山竹 — Handcrafted Knives</title>
+
+    <meta name="description"
+          content="山竹 — handcrafted knives. Japanese-inspired blades, forged by hand.">
+
+    <style>
+
+        /* =====================================================
+           ZÁKLAD
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: #e8e5df;
+            font-family: Georgia, "Times New Roman", serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ::selection {
+            background: #8d1717;
+            color: white;
+        }
+
+
+        /* =====================================================
+           NAVIGACE
+        ===================================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6vw;
+
+            background: rgba(5, 5, 5, 0.78);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            letter-spacing: 0.18em;
+            color: #f0eee9;
+        }
+
+        nav {
+            display: flex;
+            gap: 38px;
+        }
+
+        nav a {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 9vw 80px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.95) 0%,
+                    rgba(0,0,0,0.70) 48%,
+                    rgba(0,0,0,0.25) 100%
+                ),
+                radial-gradient(
+                    circle at 75% 50%,
+                    rgba(120,25,15,0.18),
+                    transparent 35%
+                ),
+                #0a0a0a;
+
+            overflow: hidden;
+        }
+
+        /* dekorativní světlo */
+
+        .hero::before {
+            content: "";
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            right: -180px;
+            top: 15%;
+
+            background: rgba(120,20,15,0.10);
+
+            filter: blur(100px);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+
+            color: #999;
+
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 10vw, 9rem);
+
+            font-weight: 400;
+
+            line-height: 0.9;
+
+            letter-spacing: 0.04em;
+
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: #a5a19a;
+        }
+
+        .red-line {
+            width: 65px;
+            height: 2px;
+
+            background: #8c1717;
+
+            margin: 35px 0 25px;
+        }
+
+        .hero-subtitle {
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+            letter-spacing: 0.32em;
+
+            color: #aaa;
+
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            max-width: 550px;
+
+            margin-top: 30px;
+
+            color: #999;
+
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .hero-button {
+            display: inline-flex;
+
+            margin-top: 42px;
+
+            padding: 16px 28px;
+
+            border: 1px solid #777;
+
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #eee;
+            color: #080808;
+            border-color: #eee;
+        }
+
+
+        /* =====================================================
+           SEKCÍ
+           ===================================================== */
+
+        section {
+            padding: 120px 7vw;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            margin-bottom: 65px;
+        }
+
+        .section-heading .line {
+            width: 45px;
+            height: 1px;
+            background: #8c1717;
+        }
+
+        .section-heading span {
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+            letter-spacing: 0.35em;
+
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(2.4rem, 5vw, 4.5rem);
+
+            font-weight: 400;
+
+            line-height: 1;
+        }
+
+
+        /* =====================================================
+           PORTFOLIO
+           ===================================================== */
+
+        #portfolio {
+            background: #0b0b0b;
+
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .portfolio-intro {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: end;
+
+            margin-bottom: 60px;
+        }
+
+        .portfolio-intro p {
+            max-width: 420px;
+
+            color: #888;
+
+            line-height: 1.7;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 28px;
+        }
+
+        .knife {
+            position: relative;
+
+            background: #111;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            overflow: hidden;
+
+            transition: 0.45s;
+        }
+
+        .knife:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(160,40,30,0.45);
+        }
+
+        .knife-image {
+            position: relative;
+
+            overflow: hidden;
+
+            aspect-ratio: 16 / 10;
+
+            background: #151515;
+        }
+
+        .knife-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter: brightness(0.82) contrast(1.08);
+
+            transition: transform 0.7s ease,
+                        filter 0.7s ease;
+        }
+
+        .knife:hover img {
+            transform: scale(1.04);
+
+            filter: brightness(0.98) contrast(1.05);
+        }
+
+        .knife-info {
+            padding: 28px 30px 32px;
+        }
+
+        .knife-number {
+            font-family: Arial, sans-serif;
+
+            font-size: 9px;
+            letter-spacing: 0.35em;
+
+            color: #777;
+
+            margin-bottom: 10px;
+        }
+
+        .knife-name {
+            font-size: 25px;
+
+            font-weight: 400;
+
+            margin-bottom: 18px;
+        }
+
+        .knife-description {
+            font-family: Arial, sans-serif;
+
+            color: #888;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+        .knife-arrow {
+            display: block;
+
+            margin-top: 25px;
+
+            color: #777;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+        .knife:hover .knife-arrow {
+            color: #a52a21;
+
+            transform: translateX(7px);
+        }
+
+
+        /* =====================================================
+           ABOUT
+           ===================================================== */
+
+        #about {
+            position: relative;
+
+            background:
+                radial-gradient(
+                    circle at 15% 50%,
+                    rgba(120,25,15,0.10),
+                    transparent 35%
+                ),
+                #090909;
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 100px;
+
+            align-items: center;
+        }
+
+        .about-text {
+            max-width: 650px;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2.5rem, 5vw, 5rem);
+
+            font-weight: 400;
+
+            line-height: 1;
+        }
+
+        .about-text p {
+            margin-top: 30px;
+
+            color: #999;
+
+            line-height: 1.9;
+
+            font-size: 16px;
+        }
+
+        .values {
+            display: flex;
+            flex-direction: column;
+
+            border-left: 1px solid #333;
+        }
+
+        .value {
+            padding: 25px 35px;
+
+            border-bottom: 1px solid #252525;
+        }
+
+        .value:first-child {
+            border-top: 1px solid #252525;
+        }
+
+        .value-number {
+            font-family: Arial, sans-serif;
+
+            color: #8d2922;
+
+            font-size: 10px;
+
+            letter-spacing: 0.2em;
+        }
+
+        .value h3 {
+            margin-top: 8px;
+
+            font-size: 18px;
+
+            font-weight: 400;
+        }
+
+        .value p {
+            margin-top: 7px;
+
+            color: #777;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           CONTACT
+           ===================================================== */
+
+        #contact {
+            text-align: center;
+
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+
+        #contact .section-heading {
+            justify-content: center;
+        }
+
+        .contact-title {
+            font-size: clamp(3rem, 7vw, 7rem);
+
+            font-weight: 400;
+
+            line-height: 0.95;
+        }
+
+        .contact-text {
+            max-width: 550px;
+
+            margin: 30px auto;
+
+            color: #888;
+
+            line-height: 1.8;
+        }
+
+        .contact-link {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 15px 28px;
+
+            border: 1px solid #555;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 0.2em;
+
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: #eee;
+
+            color: #080808;
+
+            border-color: #eee;
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 35px 7vw;
+
+            border-top: 1px solid #222;
+
+            color: #555;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 9px;
+
+            letter-spacing: 0.2em;
+
+            text-transform: uppercase;
+        }
+
+        .footer-logo {
+            font-family: Georgia, serif;
+
+            font-size: 20px;
+
+            color: #777;
+
+            letter-spacing: 0.15em;
+
+            text-transform: none;
+        }
+
+
+        /* =====================================================
+           MOBIL
+           ===================================================== */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 0 25px;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            nav a {
+                font-size: 8px;
+            }
+
+            .hero {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            section {
+                padding: 85px 25px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-intro {
+                display: block;
+            }
+
+            .portfolio-intro p {
+                margin-top: 25px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 60px;
+            }
+
+            .values {
+                border-left: none;
+            }
+
+            footer {
+                flex-direction: column;
+
+                gap: 18px;
+
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGACE
+     ========================================================= -->
+
+<header>
+
+    <a href="#home" class="logo">
+        山竹
+    </a>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            山竹 — Japanese inspired blades
+        </div>
+
+        <h1>
+            Handcrafted<br>
+            <span>Knives</span>
+        </h1>
+
+        <div class="red-line"></div>
+
+        <div class="hero-subtitle">
+            Tradition · Steel · Precision
+        </div>
+
+        <p class="hero-description">
+            Ručně vyráběné nože vznikající mezi ohněm,
+            ocelí a řemeslem. Každý kus je originál,
+            vytvořený s důrazem na charakter, funkčnost
+            a detail.
+        </p>
+
+        <a href="#portfolio" class="hero-button">
+            VIEW PORTFOLIO&nbsp;&nbsp; →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PORTFOLIO
+     ========================================================= -->
+
+<section id="portfolio">
+
+    <div class="portfolio-intro">
+
+        <div>
+
+            <div class="section-heading">
+
+                <div class="line"></div>
+
+                <span>
+                    Selected works
+                </span>
+
+            </div>
+
+            <h2 class="section-title">
+                The Blades
+            </h2>
+
+        </div>
+
+        <p>
+            Výběr ručně vyráběných nožů.
+            Každý kus vzniká jako samostatný projekt
+            s vlastním charakterem a příběhem.
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+
+        <!-- NŮŽ 01 -->
+
+        <article class="knife">
+
+            <div class="knife-image">
+
+                <img
+                    src="images/knife1.jpg"
+                    alt="山竹 — Knife No. 01"
+                >
+
+            </div>
+
+            <div class="knife-info">
+
+                <div class="knife-number">
+                    NO. 01
+                </div>
+
+                <h3 class="knife-name">
+                    First Blade
+                </h3>
+
+                <p class="knife-description">
+                    Ručně kovaná čepel s důrazem
+                    na čistou geometrii a charakter
+                    materiálu.
+                </p>
+
+                <span class="knife-arrow">
+                    →
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- NŮŽ 02 -->
+
+        <article class="knife">
+
+            <div class="knife-image">
+
+                <img
+                    src="images/knife2.jpg"
+                    alt="山竹 — Knife No. 02"
+                >
+
+            </div>
+
+            <div class="knife-info">
+
+                <div class="knife-number">
+                    NO. 02
+                </div>
+
+                <h3 class="knife-name">
+                    Second Blade
+                </h3>
+
+                <p class="knife-description">
+                    Konstrukce založená na spojení
+                    funkce, proporcí a výrazného
+                    povrchu čepele.
+                </p>
+
+                <span class="knife-arrow">
+                    →
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- NŮŽ 03 -->
+
+        <article class="knife">
+
+            <div class="knife-image">
+
+                <img
+                    src="images/knife3.jpg"
+                    alt="山竹 — Knife No. 03"
+                >
+
+            </div>
+
+            <div class="knife-info">
+
+                <div class="knife-number">
+                    NO. 03
+                </div>
+
+                <h3 class="knife-name">
+                    Third Blade
+                </h3>
+
+                <p class="knife-description">
+                    Individuálně navržený nůž,
+                    ve kterém se tradiční řemeslo
+                    setkává s osobním stylem.
+                </p>
+
+                <span class="knife-arrow">
+                    →
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- NŮŽ 04 -->
+
+        <article class="knife">
+
+            <div class="knife-image">
+
+                <img
+                    src="images/knife4.jpg"
+                    alt="山竹 — Knife No. 04"
+                >
+
+            </div>
+
+            <div class="knife-info">
+
+                <div class="knife-number">
+                    NO. 04
+                </div>
+
+                <h3 class="knife-name">
+                    Fourth Blade
+                </h3>
+
+                <p class="knife-description">
+                    Další originální práce
+                    z dílny 山竹.
+                </p>
+
+                <span class="knife-arrow">
+                    →
+                </span>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+     ========================================================= -->
+
+<section id="about">
+
+    <div class="about-grid">
+
+
+        <div class="about-text">
+
+            <div class="section-heading">
+
+                <div class="line"></div>
+
+                <span>
+                    About the maker
+                </span>
+
+            </div>
+
+            <h2>
+                The Art<br>
+                of Forging
+            </h2>
+
+            <p>
+                Tvorba nožů pro mě není pouze výrobou nástroje.
+                Je to proces, ve kterém se setkává materiál,
+                oheň, přesnost a vlastní představa o výsledném
+                tvaru.
+            </p>
+
+            <p>
+                Inspiraci nacházím především v japonském
+                kovářství a v temné estetice mangy.
+                Každý nůž má mít vlastní charakter —
+                stejně jako člověk, který jej vytvořil.
+            </p>
+
+        </div>
+
+
+        <div class="values">
+
+
+            <div class="value">
+
+                <div class="value-number">
+                    01 / CRAFT
+                </div>
+
+                <h3>
+                    Ruční výroba
+                </h3>
+
+                <p>
+                    Každý kus vzniká ručně
+                    a prochází vlastní cestou.
+                </p>
+
+            </div>
+
+
+            <div class="value">
+
+                <div class="value-number">
+                    02 / STEEL
+                </div>
+
+                <h3>
+                    Ocel
+                </h3>
+
+                <p>
+                    Materiál není pouze prostředek.
+                    Je součástí charakteru nože.
+                </p>
+
+            </div>
+
+
+            <div class="value">
+
+                <div class="value-number">
+                    03 / FORM
+                </div>
+
+                <h3>
+                    Tvar
+                </h3>
+
+                <p>
+                    Proporce, linie a povrch
+                    musí fungovat jako jeden celek.
+                </p>
+
+            </div>
+
+
+            <div class="value">
+
+                <div class="value-number">
+                    04 / SOUL
+                </div>
+
+                <h3>
+                    Charakter
+                </h3>
+
+                <p>
+                    Cílem není vytvořit další stejný nůž.
+                    Každý kus má být vlastní.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
+
+<section id="contact">
+
+    <div class="section-heading">
+
+        <div class="line"></div>
+
+        <span>
+            Get in touch
+        </span>
+
+        <div class="line"></div>
+
+    </div>
+
+    <h2 class="contact-title">
+        Let's talk.
+    </h2>
+
+    <p class="contact-text">
+        Máš zájem o mou práci, chceš se dozvědět více
+        o konkrétním noži nebo se spojit ohledně
+        budoucího projektu?
+    </p>
+
+    <!--
+        SEM POZDĚJI DÁME TVŮJ E-MAIL
+        -->
+
+    <a
+        href="mailto:tvoje@email.cz"
+        class="contact-link"
+    >
+        CONTACT ME
+    </a>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div>
+        © 2026 山竹
+    </div>
+
+    <div class="footer-logo">
+        山竹
+    </div>
+
+    <div>
+        Tradition · Steel · Precision
+    </div>
+
+</footer>
+
+
+</body>
+</html>
