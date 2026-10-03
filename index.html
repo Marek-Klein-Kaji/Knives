@@ -7,7 +7,7 @@
     <title>山竹 — Ručně kované nože</title>
 
     <meta name="description"
-          content="山竹 — Marek Klein. Japonský styl nožů, vykováno rukama.">
+          content="山竹 —. Japonský styl nožů, vykováno rukama.">
 
     <style>
 
@@ -474,16 +474,78 @@
         }
 
 
+        /* =====================================================
+           DALŠÍ FOTOGRAFIE NOŽŮ
+           ===================================================== */
+
+        .knife-extra-images {
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 10px;
+
+            padding: 0 30px 5px;
+        }
+
+        .knife-extra-images a {
+            display: block;
+
+            aspect-ratio: 16 / 10;
+
+            overflow: hidden;
+
+            background: #151515;
+
+            cursor: zoom-in;
+        }
+
+        .knife-extra-images img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter: brightness(0.78) contrast(1.08);
+
+            transition: 0.5s;
+        }
+
+        .knife-extra-images a:hover img {
+            transform: scale(1.05);
+
+            filter: brightness(0.96) contrast(1.05);
+        }
+
+
+        /* =====================================================
+           DETAIL — ŠIPKA
+           ===================================================== */
+
         .knife-arrow {
             display: block;
 
+            width: fit-content;
+
             margin-top: 25px;
+
+            padding: 0;
+
+            background: none;
+
+            border: none;
 
             color: #777;
 
             font-family: Arial, sans-serif;
 
-            font-size: 18px;
+            font-size: 13px;
+
+            letter-spacing: 0.14em;
+
+            cursor: pointer;
 
             transition: 0.3s;
         }
@@ -661,6 +723,278 @@
             font-size: 12px;
 
             line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           DALŠÍ FOTOGRAFIE KOVÁŘSTVÍ
+           ===================================================== */
+
+        .craft-extra-images {
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 10px;
+
+            padding: 0 30px 5px;
+        }
+
+        .craft-extra-images a {
+            display: block;
+
+            aspect-ratio: 16 / 10;
+
+            overflow: hidden;
+
+            background: #151515;
+
+            cursor: zoom-in;
+        }
+
+        .craft-extra-images img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter: brightness(0.74) contrast(1.08);
+
+            transition: 0.5s;
+        }
+
+        .craft-extra-images a:hover img {
+            transform: scale(1.05);
+
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        .craft-detail-button {
+            display: block;
+
+            width: fit-content;
+
+            margin-top: 25px;
+
+            padding: 0;
+
+            background: none;
+
+            border: none;
+
+            color: #777;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            letter-spacing: 0.14em;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .craft-card:hover .craft-detail-button {
+            color: #a52a21;
+
+            transform: translateX(7px);
+        }
+
+
+        /* =====================================================
+           DETAIL OKNO
+           ===================================================== */
+
+        .detail-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,0.92);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 35px;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: 0.35s;
+
+            z-index: 3000;
+
+            overflow-y: auto;
+        }
+
+        .detail-overlay.active {
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+        .detail-window {
+            position: relative;
+
+            width: min(1000px, 94vw);
+
+            max-height: 92vh;
+
+            overflow-y: auto;
+
+            background: #101010;
+
+            border: 1px solid rgba(255,255,255,0.10);
+
+            box-shadow: 0 25px 100px rgba(0,0,0,0.8);
+
+            padding: 45px;
+        }
+
+        .detail-close {
+            position: absolute;
+
+            top: 15px;
+            right: 20px;
+
+            background: none;
+
+            border: none;
+
+            color: #aaa;
+
+            font-size: 36px;
+
+            font-weight: 200;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            z-index: 2;
+        }
+
+        .detail-close:hover {
+            color: #9d211a;
+
+            transform: rotate(90deg);
+        }
+
+        .detail-number {
+            font-family: Arial, sans-serif;
+
+            color: #8d2922;
+
+            font-size: 9px;
+
+            letter-spacing: 0.35em;
+
+            margin-bottom: 10px;
+        }
+
+        .detail-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+
+            font-weight: 400;
+
+            line-height: 1;
+
+            margin-bottom: 30px;
+        }
+
+        .detail-images {
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+        }
+
+        .detail-images a {
+            display: block;
+
+            aspect-ratio: 16 / 10;
+
+            overflow: hidden;
+
+            background: #151515;
+
+            cursor: zoom-in;
+        }
+
+        .detail-images img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter: brightness(0.84) contrast(1.08);
+
+            transition: 0.5s;
+        }
+
+        .detail-images a:hover img {
+            transform: scale(1.03);
+
+            filter: brightness(0.98) contrast(1.05);
+        }
+
+        .detail-description {
+            max-width: 750px;
+
+            color: #999;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            line-height: 1.9;
+
+            margin-bottom: 25px;
+        }
+
+        .detail-specs {
+            list-style: none;
+
+            border-top: 1px solid #292929;
+        }
+
+        .detail-specs li {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            padding: 11px 0;
+
+            border-bottom: 1px solid #222;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+        }
+
+        .detail-specs span {
+            color: #777;
+        }
+
+        .detail-specs strong {
+            color: #d0cdc7;
+
+            font-weight: normal;
+
+            text-align: right;
         }
 
 
@@ -845,7 +1179,7 @@
 
             transition: 0.35s;
 
-            z-index: 2000;
+            z-index: 4000;
         }
 
         .lightbox.active {
@@ -998,6 +1332,36 @@
                 text-align: right;
             }
 
+            .knife-extra-images,
+            .craft-extra-images {
+                grid-template-columns: 1fr 1fr;
+
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .detail-overlay {
+                padding: 15px;
+            }
+
+            .detail-window {
+                padding: 35px 20px 25px;
+
+                max-height: 94vh;
+            }
+
+            .detail-images {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-specs li {
+                gap: 15px;
+            }
+
+            .detail-specs strong {
+                text-align: right;
+            }
+
             .lightbox {
                 padding: 20px;
             }
@@ -1140,6 +1504,26 @@
 
             </div>
 
+            <!-- DALŠÍ 2 FOTOGRAFIE -->
+
+            <div class="knife-extra-images">
+
+                <a href="GYUTO_2.jpeg" class="knife-lightbox">
+                    <img
+                        src="GYUTO_2.jpeg"
+                        alt="Gyuto — detail 2"
+                    >
+                </a>
+
+                <a href="GYUTO_3.jpeg" class="knife-lightbox">
+                    <img
+                        src="GYUTO_3.jpeg"
+                        alt="Gyuto — detail 3"
+                    >
+                </a>
+
+            </div>
+
             <div class="knife-info">
 
                 <div class="knife-number">
@@ -1188,9 +1572,12 @@
 
                 </ul>
 
-                <span class="knife-arrow">
-                    →
-                </span>
+                <button
+                    class="knife-arrow detail-button"
+                    data-detail="gyuto"
+                >
+                    → DETAIL NOŽE
+                </button>
 
             </div>
 
@@ -1212,6 +1599,26 @@
                         alt="山竹 — Knife No. 02"
                     >
 
+                </a>
+
+            </div>
+
+            <!-- DALŠÍ 2 FOTOGRAFIE -->
+
+            <div class="knife-extra-images">
+
+                <a href="DAMASCUS_2.jpeg" class="knife-lightbox">
+                    <img
+                        src="DAMASCUS_2.jpeg"
+                        alt="Damaškový nůž — detail 2"
+                    >
+                </a>
+
+                <a href="DAMASCUS_3.jpeg" class="knife-lightbox">
+                    <img
+                        src="DAMASCUS_3.jpeg"
+                        alt="Damaškový nůž — detail 3"
+                    >
                 </a>
 
             </div>
@@ -1254,9 +1661,12 @@
 
                 </ul>
 
-                <span class="knife-arrow">
-                    →
-                </span>
+                <button
+                    class="knife-arrow detail-button"
+                    data-detail="damascus"
+                >
+                    → DETAIL NOŽE
+                </button>
 
             </div>
 
@@ -1278,6 +1688,26 @@
                         alt="山竹 — Knife No. 03"
                     >
 
+                </a>
+
+            </div>
+
+            <!-- DALŠÍ 2 FOTOGRAFIE -->
+
+            <div class="knife-extra-images">
+
+                <a href="MEAT_KNIFE_2.jpeg" class="knife-lightbox">
+                    <img
+                        src="MEAT_KNIFE_2.jpeg"
+                        alt="Velký nůž na maso — detail 2"
+                    >
+                </a>
+
+                <a href="MEAT_KNIFE_3.jpeg" class="knife-lightbox">
+                    <img
+                        src="MEAT_KNIFE_3.jpeg"
+                        alt="Velký nůž na maso — detail 3"
+                    >
                 </a>
 
             </div>
@@ -1321,9 +1751,12 @@
 
                 </ul>
 
-                <span class="knife-arrow">
-                    →
-                </span>
+                <button
+                    class="knife-arrow detail-button"
+                    data-detail="meat"
+                >
+                    → DETAIL NOŽE
+                </button>
 
             </div>
 
@@ -1345,6 +1778,26 @@
                         alt="山竹 — Knife No. 04"
                     >
 
+                </a>
+
+            </div>
+
+            <!-- DALŠÍ 2 FOTOGRAFIE -->
+
+            <div class="knife-extra-images">
+
+                <a href="PETTY_2.jpeg" class="knife-lightbox">
+                    <img
+                        src="PETTY_2.jpeg"
+                        alt="Petty knife — detail 2"
+                    >
+                </a>
+
+                <a href="PETTY_3.jpeg" class="knife-lightbox">
+                    <img
+                        src="PETTY_3.jpeg"
+                        alt="Petty knife — detail 3"
+                    >
                 </a>
 
             </div>
@@ -1393,9 +1846,12 @@
 
                 </ul>
 
-                <span class="knife-arrow">
-                    →
-                </span>
+                <button
+                    class="knife-arrow detail-button"
+                    data-detail="petty"
+                >
+                    → DETAIL NOŽE
+                </button>
 
             </div>
 
@@ -1463,6 +1919,24 @@
 
             </div>
 
+            <div class="craft-extra-images">
+
+                <a href="STEEL_2.jpeg" class="knife-lightbox">
+                    <img
+                        src="STEEL_2.jpeg"
+                        alt="Tradiční ocel — detail 2"
+                    >
+                </a>
+
+                <a href="STEEL_3.jpeg" class="knife-lightbox">
+                    <img
+                        src="STEEL_3.jpeg"
+                        alt="Tradiční ocel — detail 3"
+                    >
+                </a>
+
+            </div>
+
             <div class="craft-info">
 
                 <div class="craft-number">
@@ -1477,6 +1951,13 @@
                     Práce s ocelí a její příprava před samotným kováním.
                     Materiál je základem výsledné čepele a jejího charakteru.
                 </p>
+
+                <button
+                    class="craft-detail-button detail-button"
+                    data-detail="steel"
+                >
+                    → DETAIL
+                </button>
 
             </div>
 
@@ -1502,6 +1983,24 @@
 
             </div>
 
+            <div class="craft-extra-images">
+
+                <a href="FOLDING_2.jpeg" class="knife-lightbox">
+                    <img
+                        src="FOLDING_2.jpeg"
+                        alt="Překládání oceli — detail 2"
+                    >
+                </a>
+
+                <a href="FOLDING_3.jpeg" class="knife-lightbox">
+                    <img
+                        src="FOLDING_3.jpeg"
+                        alt="Překládání oceli — detail 3"
+                    >
+                </a>
+
+            </div>
+
             <div class="craft-info">
 
                 <div class="craft-number">
@@ -1517,6 +2016,13 @@
                     svařování a kování. Proces, který výrazně ovlivňuje
                     strukturu a vzhled výsledného materiálu.
                 </p>
+
+                <button
+                    class="craft-detail-button detail-button"
+                    data-detail="folding"
+                >
+                    → DETAIL
+                </button>
 
             </div>
 
@@ -1542,6 +2048,24 @@
 
             </div>
 
+            <div class="craft-extra-images">
+
+                <a href="FORGING_2.jpeg" class="knife-lightbox">
+                    <img
+                        src="FORGING_2.jpeg"
+                        alt="Kování — detail 2"
+                    >
+                </a>
+
+                <a href="FORGING_3.jpeg" class="knife-lightbox">
+                    <img
+                        src="FORGING_3.jpeg"
+                        alt="Kování — detail 3"
+                    >
+                </a>
+
+            </div>
+
             <div class="craft-info">
 
                 <div class="craft-number">
@@ -1557,6 +2081,13 @@
                     kovadliny a dalších nástrojů. Zde vzniká základní
                     tvar budoucí čepele.
                 </p>
+
+                <button
+                    class="craft-detail-button detail-button"
+                    data-detail="forging"
+                >
+                    → DETAIL
+                </button>
 
             </div>
 
@@ -1582,6 +2113,24 @@
 
             </div>
 
+            <div class="craft-extra-images">
+
+                <a href="TANTO_2.jpeg" class="knife-lightbox">
+                    <img
+                        src="TANTO_2.jpeg"
+                        alt="Tantō — detail 2"
+                    >
+                </a>
+
+                <a href="TANTO_3.jpeg" class="knife-lightbox">
+                    <img
+                        src="TANTO_3.jpeg"
+                        alt="Tantō — detail 3"
+                    >
+                </a>
+
+            </div>
+
             <div class="craft-info">
 
                 <div class="craft-number">
@@ -1597,6 +2146,13 @@
                     japonskými krátkými meči. Důraz je kladen především
                     na tvar čepele, konstrukci a samotný kovářský proces.
                 </p>
+
+                <button
+                    class="craft-detail-button detail-button"
+                    data-detail="tanto"
+                >
+                    → DETAIL
+                </button>
 
             </div>
 
@@ -1794,6 +2350,71 @@
 
 
 <!-- =========================================================
+     DETAIL OKNO
+     ========================================================= -->
+
+<div class="detail-overlay" id="detail-overlay">
+
+    <div class="detail-window">
+
+        <button
+            class="detail-close"
+            id="detail-close"
+            aria-label="Zavřít detail"
+        >
+            ×
+        </button>
+
+        <div class="detail-number" id="detail-number">
+            NO. 01
+        </div>
+
+        <h2 class="detail-title" id="detail-title">
+            Gyuto
+        </h2>
+
+        <div class="detail-images">
+
+            <a href="" class="knife-lightbox" id="detail-image-link-1">
+
+                <img
+                    id="detail-image-1"
+                    src=""
+                    alt=""
+                >
+
+            </a>
+
+            <a href="" class="knife-lightbox" id="detail-image-link-2">
+
+                <img
+                    id="detail-image-2"
+                    src=""
+                    alt=""
+                >
+
+            </a>
+
+        </div>
+
+        <p
+            class="detail-description"
+            id="detail-description"
+        >
+        </p>
+
+        <ul
+            class="detail-specs"
+            id="detail-specs"
+        >
+        </ul>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
      LIGHTBOX
      ========================================================= -->
 
@@ -1817,12 +2438,418 @@
 
 
 <!-- =========================================================
-     JAVASCRIPT — LIGHTBOX
+     JAVASCRIPT
      ========================================================= -->
 
 <script>
 
-const lightbox = document.getElementById("lightbox");
+
+/* =========================================================
+   DATA DETAILŮ
+   ========================================================= */
+
+const detailData = {
+
+
+    /* =====================================================
+       NOŽE
+       ===================================================== */
+
+    gyuto: {
+
+        number: "NO. 01",
+
+        title: "Gyuto",
+
+        image1: "GYUTO_DETAIL_1.jpeg",
+
+        image2: "GYUTO_DETAIL_2.jpeg",
+
+        description:
+            "Ručně kované gyuto s klínovým výbrusem. " +
+            "Kuchyňský nůž vytvořený s důrazem na pohodlnou práci, " +
+            "charakter čepele a přirozené spojení oceli s dřevěnou rukojetí.",
+
+        specs: [
+
+            ["Ocel", "Uhlíková ocel"],
+
+            ["Rukojeť", "Bubingo"],
+
+            ["Celková délka", "31 cm"],
+
+            ["Délka ostří", "19 cm"],
+
+            ["Výbrus", "Klínový"],
+
+            ["Ošetření dřeva", "Tungový olej"]
+
+        ]
+
+    },
+
+
+    damascus: {
+
+        number: "NO. 02",
+
+        title: "Damaškový nůž",
+
+        image1: "DAMASCUS_DETAIL_1.jpeg",
+
+        image2: "DAMASCUS_DETAIL_2.jpeg",
+
+        description:
+            "Nůž vytvořený ve volném stylu jako kombinace více přístupů. " +
+            "Čepel vznikla spojením dvou druhů ocelí a opakovaným překládáním.",
+
+        specs: [
+
+            ["Celková délka", "cca 25 cm"],
+
+            ["Ocel", "2 druhy ocelí"],
+
+            ["Počet vrstev", "156"],
+
+            ["Metoda", "Překládání"]
+
+        ]
+
+    },
+
+
+    meat: {
+
+        number: "NO. 03",
+
+        title: "Velký nůž na maso",
+
+        image1: "MEAT_KNIFE_DETAIL_1.jpeg",
+
+        image2: "MEAT_KNIFE_DETAIL_2.jpeg",
+
+        description:
+            "Individuálně navržený masivní nůž určený na práci s velkými " +
+            "kusy masa. Konstrukce je přizpůsobena požadované pevnosti " +
+            "a způsobu použití.",
+
+        specs: [
+
+            ["Celková délka", "cca 41 cm"],
+
+            ["Tloušťka", "7 mm"],
+
+            ["Rukojeť", "Jasan"],
+
+            ["Kolíček", "Roh vodního buvola"]
+
+        ]
+
+    },
+
+
+    petty: {
+
+        number: "NO. 04",
+
+        title: "Petty knife",
+
+        image1: "PETTY_DETAIL_1.jpeg",
+
+        image2: "PETTY_DETAIL_2.jpeg",
+
+        description:
+            "Menší univerzální petty knife určený pro drobnější práce " +
+            "v kuchyni. Díky kompaktním rozměrům je vhodný pro každodenní " +
+            "použití i přesnější úpravu surovin.",
+
+        specs: [
+
+            ["Celková délka", "25,5 cm"],
+
+            ["Délka rukojeti", "12 cm"],
+
+            ["Délka ostří", "12,8 cm"],
+
+            ["Rukojeť", "Padouk"],
+
+            ["Ocel čepele", "Uhlíková ocel 19191"]
+
+        ]
+
+    },
+
+
+    /* =====================================================
+       KOVÁŘSTVÍ
+       ===================================================== */
+
+    steel: {
+
+        number: "01 / OCEL",
+
+        title: "Tradiční ocel",
+
+        image1: "STEEL_DETAIL_1.jpeg",
+
+        image2: "STEEL_DETAIL_2.jpeg",
+
+        description:
+            "Práce s ocelí a její příprava před samotným kováním. " +
+            "Materiál je jedním ze základů výsledné čepele a ovlivňuje " +
+            "její vlastnosti, strukturu i charakter.",
+
+        specs: [
+
+            ["Proces", "Příprava materiálu"],
+
+            ["Zaměření", "Kovářské zpracování"],
+
+            ["Výsledek", "Materiál pro čepel"]
+
+        ]
+
+    },
+
+
+    folding: {
+
+        number: "02 / PŘEKLÁDÁNÍ",
+
+        title: "Překládání",
+
+        image1: "FOLDING_DETAIL_1.jpeg",
+
+        image2: "FOLDING_DETAIL_2.jpeg",
+
+        description:
+            "Zpracování oceli pomocí opakovaného překládání, svařování " +
+            "a kování. Proces umožňuje vytvářet specifickou strukturu " +
+            "a vzhled výsledného materiálu.",
+
+        specs: [
+
+            ["Proces", "Překládání a kování"],
+
+            ["Spojení", "Svařování vrstev"],
+
+            ["Výsledek", "Vrstvená struktura"]
+
+        ]
+
+    },
+
+
+    forging: {
+
+        number: "03 / KOVÁNÍ",
+
+        title: "Kování",
+
+        image1: "FORGING_DETAIL_1.jpeg",
+
+        image2: "FORGING_DETAIL_2.jpeg",
+
+        description:
+            "Tvarování rozžhaveného materiálu pomocí kladiva, kovadliny " +
+            "a dalších nástrojů. Právě při kování vzniká základní tvar " +
+            "budoucí čepele.",
+
+        specs: [
+
+            ["Proces", "Ruční kování"],
+
+            ["Nástroje", "Kladivo a kovadlina"],
+
+            ["Výsledek", "Základní tvar čepele"]
+
+        ]
+
+    },
+
+
+    tanto: {
+
+        number: "04 / MEČE",
+
+        title: "Tantō",
+
+        image1: "TANTO_DETAIL_1.jpeg",
+
+        image2: "TANTO_DETAIL_2.jpeg",
+
+        description:
+            "Studium a tvorba čepelí inspirovaných tradičními japonskými " +
+            "krátkými čepelemi typu tantō. Důraz je kladen na tvar, " +
+            "konstrukci a samotný kovářský proces.",
+
+        specs: [
+
+            ["Typ", "Tantō"],
+
+            ["Inspirace", "Tradiční japonské čepele"],
+
+            ["Zaměření", "Tvar a konstrukce"]
+
+        ]
+
+    }
+
+};
+
+
+/* =========================================================
+   DETAIL OKNO
+   ========================================================= */
+
+const detailOverlay =
+    document.getElementById("detail-overlay");
+
+const detailClose =
+    document.getElementById("detail-close");
+
+const detailNumber =
+    document.getElementById("detail-number");
+
+const detailTitle =
+    document.getElementById("detail-title");
+
+const detailDescription =
+    document.getElementById("detail-description");
+
+const detailSpecs =
+    document.getElementById("detail-specs");
+
+const detailImage1 =
+    document.getElementById("detail-image-1");
+
+const detailImage2 =
+    document.getElementById("detail-image-2");
+
+const detailImageLink1 =
+    document.getElementById("detail-image-link-1");
+
+const detailImageLink2 =
+    document.getElementById("detail-image-link-2");
+
+
+document.querySelectorAll(".detail-button").forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        const key = this.dataset.detail;
+
+        const data = detailData[key];
+
+        if (!data) {
+            return;
+        }
+
+
+        detailNumber.textContent =
+            data.number;
+
+        detailTitle.textContent =
+            data.title;
+
+        detailDescription.textContent =
+            data.description;
+
+
+        detailImage1.src =
+            data.image1;
+
+        detailImage1.alt =
+            data.title + " — detail 1";
+
+        detailImageLink1.href =
+            data.image1;
+
+
+        detailImage2.src =
+            data.image2;
+
+        detailImage2.alt =
+            data.title + " — detail 2";
+
+        detailImageLink2.href =
+            data.image2;
+
+
+        detailSpecs.innerHTML = "";
+
+
+        data.specs.forEach(spec => {
+
+            const li =
+                document.createElement("li");
+
+            const span =
+                document.createElement("span");
+
+            const strong =
+                document.createElement("strong");
+
+            span.textContent =
+                spec[0];
+
+            strong.textContent =
+                spec[1];
+
+            li.appendChild(span);
+
+            li.appendChild(strong);
+
+            detailSpecs.appendChild(li);
+
+        });
+
+
+        detailOverlay.classList.add("active");
+
+        document.body.style.overflow =
+            "hidden";
+
+    });
+
+});
+
+
+function closeDetail() {
+
+    detailOverlay.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+detailClose.addEventListener(
+    "click",
+    closeDetail
+);
+
+
+detailOverlay.addEventListener(
+    "click",
+    function(event) {
+
+        if (event.target === detailOverlay) {
+
+            closeDetail();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+const lightbox =
+    document.getElementById("lightbox");
 
 const lightboxImage =
     document.getElementById("lightbox-image");
@@ -1831,22 +2858,34 @@ const closeButton =
     document.getElementById("lightbox-close");
 
 
-document.querySelectorAll(".knife-lightbox").forEach(link => {
+document.addEventListener("click", function(event) {
 
-    link.addEventListener("click", function(event) {
+    const link =
+        event.target.closest(".knife-lightbox");
 
-        event.preventDefault();
+    if (!link) {
+        return;
+    }
 
-        lightboxImage.src = this.href;
+    event.preventDefault();
+
+    lightboxImage.src =
+        link.href;
+
+    const image =
+        link.querySelector("img");
+
+    if (image) {
 
         lightboxImage.alt =
-            this.querySelector("img").alt;
+            image.alt;
 
-        lightbox.classList.add("active");
+    }
 
-        document.body.style.overflow = "hidden";
+    lightbox.classList.add("active");
 
-    });
+    document.body.style.overflow =
+        "hidden";
 
 });
 
@@ -1868,26 +2907,46 @@ closeButton.addEventListener(
 );
 
 
-lightbox.addEventListener("click", function(event) {
+lightbox.addEventListener(
+    "click",
+    function(event) {
 
-    if (event.target === lightbox) {
+        if (event.target === lightbox) {
 
-        closeLightbox();
+            closeLightbox();
 
-    }
-
-});
-
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-        closeLightbox();
+        }
 
     }
+);
 
-});
+
+/* =========================================================
+   ESC — ZAVŘENÍ OKEN
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            if (lightbox.classList.contains("active")) {
+
+                closeLightbox();
+
+            }
+
+            else if (detailOverlay.classList.contains("active")) {
+
+                closeDetail();
+
+            }
+
+        }
+
+    }
+);
 
 </script>
 
