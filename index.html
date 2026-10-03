@@ -7,13 +7,13 @@
     <title>山竹 — Ručně kované nože</title>
 
     <meta name="description"
-          content="山竹 — Marek Klein. Japonský styl nožů, vykováno rukama.">
+          content="山竹 —. Japonský styl nožů, vykováno rukama.">
 
     <style>
 
         /* =====================================================
            ZÁKLAD
-        ===================================================== */
+           ===================================================== */
 
         * {
             margin: 0;
@@ -45,7 +45,7 @@
 
         /* =====================================================
            NAVIGACE
-        ===================================================== */
+           ===================================================== */
 
         header {
             position: fixed;
@@ -121,11 +121,8 @@
                 url("IMG_3108.jpeg") center / cover no-repeat,
                 #0a0a0a;
 
-
             overflow: hidden;
         }
-
-        /* dekorativní světlo */
 
         .hero::before {
             content: "";
@@ -340,6 +337,15 @@
             background: #151515;
         }
 
+        .knife-image a {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            cursor: zoom-in;
+        }
+
         .knife-image img {
             width: 100%;
             height: 100%;
@@ -350,14 +356,46 @@
 
             filter: brightness(0.82) contrast(1.08);
 
-            transition: transform 0.7s ease,
-                        filter 0.7s ease;
+            transition:
+                transform 0.7s ease,
+                filter 0.7s ease;
         }
 
         .knife:hover img {
             transform: scale(1.04);
 
             filter: brightness(0.98) contrast(1.05);
+        }
+
+        .knife-image a::after {
+            content: "ZVĚTŠIT  ↗";
+
+            position: absolute;
+
+            right: 18px;
+            bottom: 18px;
+
+            padding: 8px 12px;
+
+            background: rgba(0,0,0,0.65);
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            font-family: Arial, sans-serif;
+
+            font-size: 9px;
+
+            letter-spacing: 0.18em;
+
+            color: #ddd;
+
+            opacity: 0;
+
+            transition: 0.3s;
+        }
+
+        .knife-image:hover a::after {
+            opacity: 1;
         }
 
         .knife-info {
@@ -393,6 +431,49 @@
             line-height: 1.7;
         }
 
+
+        /* =====================================================
+           SPECIFIKACE NOŽE
+           ===================================================== */
+
+        .knife-specs {
+            list-style: none;
+
+            margin-top: 25px;
+
+            border-top: 1px solid #292929;
+        }
+
+        .knife-specs li {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: baseline;
+
+            gap: 25px;
+
+            padding: 11px 0;
+
+            border-bottom: 1px solid #222;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+        }
+
+        .knife-specs span {
+            color: #777;
+        }
+
+        .knife-specs strong {
+            color: #d0cdc7;
+
+            font-weight: normal;
+
+            text-align: right;
+        }
+
+
         .knife-arrow {
             display: block;
 
@@ -411,6 +492,175 @@
             color: #a52a21;
 
             transform: translateX(7px);
+        }
+
+
+        /* =====================================================
+           KOVÁŘSTVÍ / OCEL / MEČE
+           ===================================================== */
+
+        #craft {
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(120,25,15,0.08),
+                    transparent 35%
+                ),
+                #080808;
+
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .craft-intro {
+            max-width: 750px;
+
+            margin-bottom: 65px;
+        }
+
+        .craft-intro p {
+            margin-top: 30px;
+
+            max-width: 650px;
+
+            color: #888;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+        }
+
+        .craft-gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 28px;
+        }
+
+        .craft-card {
+            position: relative;
+
+            background: #101010;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            overflow: hidden;
+
+            transition: 0.45s;
+        }
+
+        .craft-card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(160,40,30,0.45);
+        }
+
+        .craft-image {
+            position: relative;
+
+            aspect-ratio: 16 / 10;
+
+            overflow: hidden;
+
+            background: #151515;
+        }
+
+        .craft-image a {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            cursor: zoom-in;
+        }
+
+        .craft-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            filter: brightness(0.78) contrast(1.08);
+
+            transition:
+                transform 0.7s ease,
+                filter 0.7s ease;
+        }
+
+        .craft-card:hover img {
+            transform: scale(1.04);
+
+            filter: brightness(0.96) contrast(1.05);
+        }
+
+        .craft-image a::after {
+            content: "ZVĚTŠIT  ↗";
+
+            position: absolute;
+
+            right: 18px;
+            bottom: 18px;
+
+            padding: 8px 12px;
+
+            background: rgba(0,0,0,0.65);
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            font-family: Arial, sans-serif;
+
+            font-size: 9px;
+
+            letter-spacing: 0.18em;
+
+            color: #ddd;
+
+            opacity: 0;
+
+            transition: 0.3s;
+        }
+
+        .craft-image:hover a::after {
+            opacity: 1;
+        }
+
+        .craft-info {
+            padding: 27px 30px 32px;
+        }
+
+        .craft-number {
+            font-family: Arial, sans-serif;
+
+            font-size: 9px;
+
+            letter-spacing: 0.35em;
+
+            color: #8d2922;
+
+            margin-bottom: 10px;
+        }
+
+        .craft-name {
+            font-size: 25px;
+
+            font-weight: 400;
+
+            margin-bottom: 15px;
+        }
+
+        .craft-description {
+            font-family: Arial, sans-serif;
+
+            color: #888;
+
+            font-size: 12px;
+
+            line-height: 1.8;
         }
 
 
@@ -572,6 +822,80 @@
 
 
         /* =====================================================
+           LIGHTBOX
+           ===================================================== */
+
+        .lightbox {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,0.94);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: 0.35s;
+
+            z-index: 2000;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+        .lightbox img {
+            max-width: 94vw;
+
+            max-height: 90vh;
+
+            object-fit: contain;
+
+            box-shadow:
+                0 20px 80px rgba(0,0,0,0.7);
+        }
+
+        .lightbox-close {
+            position: absolute;
+
+            top: 25px;
+            right: 35px;
+
+            background: none;
+
+            border: none;
+
+            color: #eee;
+
+            font-size: 42px;
+
+            font-weight: 200;
+
+            cursor: pointer;
+
+            z-index: 2001;
+
+            transition: 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: #9d211a;
+
+            transform: rotate(90deg);
+        }
+
+
+        /* =====================================================
            FOOTER
            ===================================================== */
 
@@ -662,6 +986,29 @@
                 border-left: none;
             }
 
+            .craft-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .knife-specs li {
+                gap: 15px;
+            }
+
+            .knife-specs strong {
+                text-align: right;
+            }
+
+            .lightbox {
+                padding: 20px;
+            }
+
+            .lightbox-close {
+                top: 15px;
+                right: 20px;
+
+                font-size: 36px;
+            }
+
             footer {
                 flex-direction: column;
 
@@ -691,6 +1038,7 @@
     <nav>
         <a href="#home">DOMŮ</a>
         <a href="#portfolio">PORTFOLIO</a>
+        <a href="#craft">KOVÁŘSTVÍ</a>
         <a href="#about">O MNĚ</a>
         <a href="#contact">KONTAKTY</a>
     </nav>
@@ -773,16 +1121,22 @@
     <div class="gallery">
 
 
-        <!-- NŮŽ 01 -->
+        <!-- =================================================
+             NŮŽ 01
+             ================================================= -->
 
         <article class="knife">
 
             <div class="knife-image">
 
-                <img
-                    src="IMG_3119.jpeg"
-                    alt="山竹 — Knife No. 01"
-                >
+                <a href="IMG_3119.jpeg" class="knife-lightbox">
+
+                    <img
+                        src="IMG_3119.jpeg"
+                        alt="山竹 — Knife No. 01"
+                    >
+
+                </a>
 
             </div>
 
@@ -798,12 +1152,41 @@
 
                 <p class="knife-description">
                     Ručně kované gyuto s klínovým výbrusem.
-                    Materiál čepele: uhlíková ocel
-                    Materiál rukojeti: dřevo bubingo
-                    Celková délka: 31cm
-                    Délka ostří: 19cm
-                    Ošetření dřeva: tungový olej
                 </p>
+
+                <ul class="knife-specs">
+
+                    <li>
+                        <span>Ocel</span>
+                        <strong>Uhlíková ocel</strong>
+                    </li>
+
+                    <li>
+                        <span>Rukojeť</span>
+                        <strong>Bubingo</strong>
+                    </li>
+
+                    <li>
+                        <span>Celková délka</span>
+                        <strong>31 cm</strong>
+                    </li>
+
+                    <li>
+                        <span>Délka ostří</span>
+                        <strong>19 cm</strong>
+                    </li>
+
+                    <li>
+                        <span>Ošetření dřeva</span>
+                        <strong>Tungový olej</strong>
+                    </li>
+
+                    <li>
+                        <span>Výbrus</span>
+                        <strong>Klínový</strong>
+                    </li>
+
+                </ul>
 
                 <span class="knife-arrow">
                     →
@@ -814,16 +1197,22 @@
         </article>
 
 
-        <!-- NŮŽ 02 -->
+        <!-- =================================================
+             NŮŽ 02
+             ================================================= -->
 
         <article class="knife">
 
             <div class="knife-image">
 
-                <img
-                    src="IMG_0840.jpeg"
-                    alt="山竹 — Knife No. 02"
-                >
+                <a href="IMG_0840.jpeg" class="knife-lightbox">
+
+                    <img
+                        src="IMG_0840.jpeg"
+                        alt="山竹 — Knife No. 02"
+                    >
+
+                </a>
 
             </div>
 
@@ -838,8 +1227,32 @@
                 </h3>
 
                 <p class="knife-description">
-                    Nůž byl vyrobený ve volném stylu, je kombinací více stylů. Délka celého nože: cca 25cm, ocel: 2 druhy ocelí, 156 vrstev, metoda zvyšování počtu vrstev: překládání
+                    Nůž byl vyrobený ve volném stylu, je kombinací více stylů.
                 </p>
+
+                <ul class="knife-specs">
+
+                    <li>
+                        <span>Celková délka</span>
+                        <strong>cca 25 cm</strong>
+                    </li>
+
+                    <li>
+                        <span>Ocel</span>
+                        <strong>2 druhy ocelí</strong>
+                    </li>
+
+                    <li>
+                        <span>Počet vrstev</span>
+                        <strong>156</strong>
+                    </li>
+
+                    <li>
+                        <span>Metoda</span>
+                        <strong>Překládání</strong>
+                    </li>
+
+                </ul>
 
                 <span class="knife-arrow">
                     →
@@ -850,16 +1263,22 @@
         </article>
 
 
-        <!-- NŮŽ 03 -->
+        <!-- =================================================
+             NŮŽ 03
+             ================================================= -->
 
         <article class="knife">
 
             <div class="knife-image">
 
-                <img
-                    src="IMG_3117.jpeg"
-                    alt="山竹 — Knife No. 03"
-                >
+                <a href="IMG_3117.jpeg" class="knife-lightbox">
+
+                    <img
+                        src="IMG_3117.jpeg"
+                        alt="山竹 — Knife No. 03"
+                    >
+
+                </a>
 
             </div>
 
@@ -874,10 +1293,33 @@
                 </h3>
 
                 <p class="knife-description">
-                    Individuálně navržený nůž,
-                    masivní konstrukce, určený na velké fláky masa. Celková délka: cca 41cm, tloušťka: 7mm, rukojeť: jasan + 
-                    kolíček z rohu vodního bůvola
+                    Individuálně navržený nůž, masivní konstrukce,
+                    určený na velké kusy masa.
                 </p>
+
+                <ul class="knife-specs">
+
+                    <li>
+                        <span>Celková délka</span>
+                        <strong>cca 41 cm</strong>
+                    </li>
+
+                    <li>
+                        <span>Tloušťka</span>
+                        <strong>7 mm</strong>
+                    </li>
+
+                    <li>
+                        <span>Rukojeť</span>
+                        <strong>Jasan</strong>
+                    </li>
+
+                    <li>
+                        <span>Kolíček</span>
+                        <strong>Roh vodního buvola</strong>
+                    </li>
+
+                </ul>
 
                 <span class="knife-arrow">
                     →
@@ -888,16 +1330,22 @@
         </article>
 
 
-        <!-- NŮŽ 04 -->
+        <!-- =================================================
+             NŮŽ 04
+             ================================================= -->
 
         <article class="knife">
 
             <div class="knife-image">
 
-                <img
-                    src="IMG_3122.jpeg"
-                    alt="山竹 — Knife No. 04"
-                >
+                <a href="IMG_3122.jpeg" class="knife-lightbox">
+
+                    <img
+                        src="IMG_3122.jpeg"
+                        alt="山竹 — Knife No. 04"
+                    >
+
+                </a>
 
             </div>
 
@@ -912,14 +1360,243 @@
                 </h3>
 
                 <p class="knife-description">
-                    Tento menší petty knife je na mnoho použití a je vhodný na drobné práce v kuchyni, ale i náročnéjší
-                    úpravy jídel. Celková délka: 25,5cm, délka rukojetě: 12cm, délka ostří: 12,8cm, rukojeť: padouk, ocel čepele:
-                    uhlíková ocel 19191.
+                    Tento menší petty knife je na mnoho použití a je vhodný
+                    na drobné práce v kuchyni i náročnější úpravy jídel.
                 </p>
+
+                <ul class="knife-specs">
+
+                    <li>
+                        <span>Celková délka</span>
+                        <strong>25,5 cm</strong>
+                    </li>
+
+                    <li>
+                        <span>Délka rukojeti</span>
+                        <strong>12 cm</strong>
+                    </li>
+
+                    <li>
+                        <span>Délka ostří</span>
+                        <strong>12,8 cm</strong>
+                    </li>
+
+                    <li>
+                        <span>Rukojeť</span>
+                        <strong>Padouk</strong>
+                    </li>
+
+                    <li>
+                        <span>Ocel čepele</span>
+                        <strong>Uhlíková ocel 19191</strong>
+                    </li>
+
+                </ul>
 
                 <span class="knife-arrow">
                     →
                 </span>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     KOVÁŘSTVÍ / OCEL / MEČE
+     ========================================================= -->
+
+<section id="craft">
+
+    <div class="craft-intro">
+
+        <div class="section-heading">
+
+            <div class="line"></div>
+
+            <span>
+                Kovářství · Ocel · Meče
+            </span>
+
+        </div>
+
+        <h2 class="section-title">
+            Od oceli<br>
+            k čepeli
+        </h2>
+
+        <p>
+            Kromě výroby kuchyňských nožů se věnuji také samotnému
+            kovářskému řemeslu, práci s ocelí a tradičním způsobům
+            jejího zpracování. Součástí mé tvorby je také zájem
+            o výrobu čepelí inspirovaných tradičními japonskými meči,
+            především typem tantō.
+        </p>
+
+    </div>
+
+
+    <div class="craft-gallery">
+
+
+        <!-- =================================================
+             KOVÁŘSTVÍ 01
+             ================================================= -->
+
+        <article class="craft-card">
+
+            <div class="craft-image">
+
+                <a href="IMG_steel.jpeg" class="knife-lightbox">
+
+                    <img
+                        src="IMG_steel.jpeg"
+                        alt="山竹 — Tradiční ocel"
+                    >
+
+                </a>
+
+            </div>
+
+            <div class="craft-info">
+
+                <div class="craft-number">
+                    01 / OCEL
+                </div>
+
+                <h3 class="craft-name">
+                    Tradiční ocel
+                </h3>
+
+                <p class="craft-description">
+                    Práce s ocelí a její příprava před samotným kováním.
+                    Materiál je základem výsledné čepele a jejího charakteru.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             KOVÁŘSTVÍ 02
+             ================================================= -->
+
+        <article class="craft-card">
+
+            <div class="craft-image">
+
+                <a href="IMG_folding.jpeg" class="knife-lightbox">
+
+                    <img
+                        src="IMG_folding.jpeg"
+                        alt="山竹 — Překládání oceli"
+                    >
+
+                </a>
+
+            </div>
+
+            <div class="craft-info">
+
+                <div class="craft-number">
+                    02 / PŘEKLÁDÁNÍ
+                </div>
+
+                <h3 class="craft-name">
+                    Překládání
+                </h3>
+
+                <p class="craft-description">
+                    Zpracování oceli pomocí opakovaného překládání,
+                    svařování a kování. Proces, který výrazně ovlivňuje
+                    strukturu a vzhled výsledného materiálu.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             KOVÁŘSTVÍ 03
+             ================================================= -->
+
+        <article class="craft-card">
+
+            <div class="craft-image">
+
+                <a href="IMG_forging.jpeg" class="knife-lightbox">
+
+                    <img
+                        src="IMG_forging.jpeg"
+                        alt="山竹 — Kování"
+                    >
+
+                </a>
+
+            </div>
+
+            <div class="craft-info">
+
+                <div class="craft-number">
+                    03 / KOVÁNÍ
+                </div>
+
+                <h3 class="craft-name">
+                    Kování
+                </h3>
+
+                <p class="craft-description">
+                    Tvarování rozžhaveného materiálu pomocí kladiva,
+                    kovadliny a dalších nástrojů. Zde vzniká základní
+                    tvar budoucí čepele.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             KOVÁŘSTVÍ 04
+             ================================================= -->
+
+        <article class="craft-card">
+
+            <div class="craft-image">
+
+                <a href="IMG_tanto.jpeg" class="knife-lightbox">
+
+                    <img
+                        src="IMG_tanto.jpeg"
+                        alt="山竹 — Tantō"
+                    >
+
+                </a>
+
+            </div>
+
+            <div class="craft-info">
+
+                <div class="craft-number">
+                    04 / MEČE
+                </div>
+
+                <h3 class="craft-name">
+                    Tantō
+                </h3>
+
+                <p class="craft-description">
+                    Studium a tvorba čepelí inspirovaných tradičními
+                    japonskými krátkými meči. Důraz je kladen především
+                    na tvar čepele, konstrukci a samotný kovářský proces.
+                </p>
 
             </div>
 
@@ -959,14 +1636,17 @@
 
             <p>
                 Toto řemeslo pro mě není pouze výroba nástroje.
-                Je to proces, ve kterém se snažím vytvořit něco, co lidem zpříjemní vaření a práce s nožem je bude bavit.
-                Také chci, aby se co nejméně při zpracovávání potravin co nejméně natrápili.
+                Je to proces, ve kterém se snažím vytvořit něco,
+                co lidem zpříjemní vaření a práce s nožem je bude bavit.
+                Také chci, aby se co nejméně při zpracovávání potravin
+                co nejméně natrápili.
             </p>
 
             <p>
                 Inspiraci nacházím především v japonském
                 kovářství.
-                Každému výrobku se snažím dát co nejvíce energie, aby byl lepší než ten před ním a mohl co nejdéle sloužit.
+                Každému výrobku se snažím dát co nejvíce energie,
+                aby byl lepší než ten před ním a mohl co nejdéle sloužit.
             </p>
 
         </div>
@@ -986,7 +1666,8 @@
                 </h3>
 
                 <p>
-                    Kování, broušení, kalení, leštění, leptání, ostření, výroba rukojeti a pouzder a ošetření dřeva.
+                    Kování, broušení, kalení, leštění, leptání, ostření,
+                    výroba rukojeti a pouzder a ošetření dřeva.
                 </p>
 
             </div>
@@ -1003,8 +1684,9 @@
                 </h3>
 
                 <p>
-                    V materiálech mám velký výběr, ocel prim. 19191, používám africké tvrdé, barevné dřeviny a kombinace materiálů
-                    a jejich vhodnost volím také.
+                    V materiálech mám velký výběr, ocel prim. 19191,
+                    používám africké tvrdé, barevné dřeviny a kombinace
+                    materiálů a jejich vhodnost volím také.
                 </p>
 
             </div>
@@ -1021,7 +1703,8 @@
                 </h3>
 
                 <p>
-                    Jedny z nejdůležitějších vlastností, které člověk u nástroje hledá, vše se dá individuálně přizpůsobit.
+                    Jedny z nejdůležitějších vlastností, které člověk
+                    u nástroje hledá, vše se dá individuálně přizpůsobit.
                 </p>
 
             </div>
@@ -1038,7 +1721,8 @@
                 </h3>
 
                 <p>
-                    Cílem je vytvoření nástroje, který je vhodný přesně na daný úcel, použití a v té oblasti byl nejlepší.
+                    Cílem je vytvoření nástroje, který je vhodný přesně
+                    na daný účel, použití a v té oblasti byl nejlepší.
                 </p>
 
             </div>
@@ -1078,12 +1762,8 @@
         o konkrétním noži či stylech, nebo tě zajímá něco z procesu výroby.
     </p>
 
-    <!--
-        SEM POZDĚJI DÁME TVŮJ E-MAIL
-        -->
-
     <a
-        href="mailto:kkgym@gmail.com"
+        href="mailto:uz ho tam mam ale nechci sdilet"
         class="contact-link"
     >
         Kontaktujte mě
@@ -1111,6 +1791,105 @@
     </div>
 
 </footer>
+
+
+<!-- =========================================================
+     LIGHTBOX
+     ========================================================= -->
+
+<div class="lightbox" id="lightbox">
+
+    <button
+        class="lightbox-close"
+        id="lightbox-close"
+        aria-label="Zavřít fotografii"
+    >
+        ×
+    </button>
+
+    <img
+        id="lightbox-image"
+        src=""
+        alt=""
+    >
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT — LIGHTBOX
+     ========================================================= -->
+
+<script>
+
+const lightbox = document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightbox-image");
+
+const closeButton =
+    document.getElementById("lightbox-close");
+
+
+document.querySelectorAll(".knife-lightbox").forEach(link => {
+
+    link.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        lightboxImage.src = this.href;
+
+        lightboxImage.alt =
+            this.querySelector("img").alt;
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+
+function closeLightbox() {
+
+    lightbox.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+    lightboxImage.src = "";
+
+}
+
+
+closeButton.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+lightbox.addEventListener("click", function(event) {
+
+    if (event.target === lightbox) {
+
+        closeLightbox();
+
+    }
+
+});
+
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeLightbox();
+
+    }
+
+});
+
+</script>
 
 
 </body>
